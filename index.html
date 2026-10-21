@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Waste Collection</title>
+<style>
+body{margin:0;font-family:Arial;color:#064e32;background:#f4f8f5}
+nav,footer{background:#00643b;color:white;padding:15px}
+nav a,footer a{color:white;margin:7px;text-decoration:none}
+section{padding:25px;text-align:center}
+.hero{background:#e5f3e9;padding:35px;text-align:center}
+button{background:#00833e;color:white;padding:10px;border:0;border-radius:4px;cursor:pointer}
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.card{background:white;padding:20px;width:190px;border:1px solid #ddd;border-radius:6px}
+form{max-width:450px;margin:20px auto;background:white;padding:20px;text-align:left}
+input,select,textarea{width:100%;padding:10px;margin:8px 0;box-sizing:border-box}
+.page{display:none}
+.page:target{display:block}
+body:not(:has(.page:target)) #home{display:block}
+
+/* for small screens (mobile) */
+@media(max-width:600px){
+nav a{display:block;margin:10px 0}
+footer a{display:block;margin:10px 0}
+.card{width:100%}
+form{margin:10px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<b>♻ Smart Waste Collection</b>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#request">Request</a>
+<a href="#complaint">Complaint</a>
+<a href="#login">Login</a>
+</nav>
+
+<!-- 1. HOME PAGE -->
+<div id="home" class="page">
+<div class="hero">
+<p>Clean City | Healthy Environment</p>
+<h1>Smart Waste Management</h1>
+<h2>For a Cleaner Tomorrow</h2>
+<p>Keep your city clean and green.</p>
+<a href="#request"><button>Request Waste Collection →</button></a>
+<h1>🚛 🗑️</h1>
+</div>
+<section>
+<h2>Our Services</h2>
+<div class="cards">
+<div class="card">🗑️<h3>Waste Collection</h3><p>Manage waste requests.</p></div>
+<div class="card">📍<h3>Area Management</h3><p>Manage collection areas.</p></div>
+<div class="card">🚚<h3>Collection Vehicles</h3><p>Monitor vehicles.</p></div>
+<div class="card">⚠️<h3>Complaints</h3><p>Report problems.</p></div>
+</div>
+<h2>About the System</h2>
+<p>A system to manage waste collection efficiently.</p>
+</section>
+</div>
+
+<!-- 2. ABOUT PAGE -->
+<div id="about" class="page">
+<section>
+<h1>About Us</h1>
+<p>Smart Waste Collection Management System</p>
+<div class="card" style="width:auto">
+<h3>Our Project</h3>
+<p>Our system manages waste requests, areas, vehicles and complaints.</p>
+<h3>Our Goals</h3>
+<p>✓ Keep the city clean and green</p>
+<p>✓ Improve collection efficiency</p>
+<p>✓ Reduce manual work</p>
+<p>✓ Provide easy information access</p>
+</div>
+</section>
+</div>
+
+<!-- 3. SERVICES PAGE -->
+<div id="services" class="page">
+<section>
+<h1>Our Services</h1>
+<p>Services provided by our system</p>
+<div class="cards">
+<div class="card">🗑️<h3>Waste Collection</h3><p>Manage collection requests.</p></div>
+<div class="card">📍<h3>Area Management</h3><p>Maintain area details.</p></div>
+<div class="card">🚚<h3>Collection Vehicles</h3><p>Manage vehicles.</p></div>
+<div class="card">⚠️<h3>Complaint Registration</h3><p>Track complaints.</p></div>
+</div>
+</section>
+</div>
+
+<!-- 4. REQUEST PAGE -->
+<div id="request" class="page">
+<form action="data.php" method="post">
+<input type="hidden" name="action" value="request">
+<h2>Request Waste Collection</h2>
+<label>Waste Type</label>
+<select name="waste_type" required>
+<option value="">Select waste type</option>
+<option>Wet Waste</option><option>Dry Waste</option><option>Plastic Waste</option>
+</select>
+<label>Your Name</label>
+<input type="text" name="name" placeholder="Enter your name" required>
+<label>Area</label>
+<select name="area" required>
+<option value="">Select area</option>
+<option>Ward 1</option><option>Ward 2</option><option>Ward 3</option>
+</select>
+<label>Phone Number</label>
+<input type="tel" name="phone" placeholder="Enter phone number" required>
+<label>Description</label>
+<textarea name="description" placeholder="Waste details"></textarea>
+<button type="submit">Submit Request</button>
+</form>
+</div>
+
+<!-- 5. COMPLAINT PAGE -->
+<div id="complaint" class="page">
+<form action="data.php" method="post">
+<input type="hidden" name="action" value="complaint">
+<h2>Submit a Complaint</h2>
+<label>Complaint Type</label>
+<select name="complaint_type" required>
+<option value="">Select complaint type</option>
+<option>Missed Collection</option><option>Overflowing Dustbin</option><option>Other</option>
+</select>
+<label>Area</label>
+<select name="area" required>
+<option value="">Select area</option>
+<option>Ward 1</option><option>Ward 2</option><option>Ward 3</option>
+</select>
+<label>Description</label>
+<textarea name="description" placeholder="Complaint details" required></textarea>
+<label>Your Name</label>
+<input type="text" name="name" placeholder="Enter your name" required>
+<label>Phone Number</label>
+<input type="tel" name="phone" placeholder="Phone number" required>
+<button type="submit">Submit Complaint</button>
+</form>
+</div>
+
+<!-- 6. LOGIN PAGE (shows Register and Login options on top) -->
+<div id="login" class="page">
+<section>
+<a href="#register"><button>Register</button></a>
+<a href="#login"><button>Login</button></a>
+</section>
+<form action="data.php" method="post" style="text-align:center">
+<input type="hidden" name="action" value="login">
+<h1>♻️</h1>
+<h2>Smart Waste Collection</h2>
+<p>Login to continue</p>
+<input type="email" name="email" placeholder="Email" required>
+<input type="password" name="password" placeholder="Password" required>
+<button type="submit" style="width:100%">Login</button>
+<p>Don't have an account? <a href="#register">Register</a></p>
+</form>
+</div>
+
+<!-- 7. REGISTER PAGE -->
+<div id="register" class="page">
+<section>
+<a href="#register"><button>Register</button></a>
+<a href="#login"><button>Login</button></a>
+</section>
+<form action="data.php" method="post" style="text-align:center">
+<input type="hidden" name="action" value="register">
+<h1>♻️</h1>
+<h2>Create Account</h2>
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="password" name="password" placeholder="Password" required>
+<input type="password" name="confirm" placeholder="Confirm Password" required>
+<button type="submit" style="width:100%">Register</button>
+<p>Already have an account? <a href="#login">Login</a></p>
+</form>
+</div>
+
+<footer>
+© 2026 Smart Waste Collection
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+</footer>
+
+</body>
+</html>
